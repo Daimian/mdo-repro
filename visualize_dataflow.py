@@ -3,7 +3,7 @@ import graphviz
 d = graphviz.Digraph('dataflow', format='png', engine='dot')
 d.attr(rankdir='TB', label='MDO Data Flow: From Raw Database to Semantic Query',
        fontsize='18', labelloc='t', fontname='Helvetica-Bold',
-       bgcolor='white', nodesep='0.6', ranksep='0.8', dpi='150', pad='0.5')
+       bgcolor='white', nodesep='0.6', ranksep='0.8', dpi='300', pad='0.5')
 
 # ============================================================
 # LAYER 1: External Data Sources

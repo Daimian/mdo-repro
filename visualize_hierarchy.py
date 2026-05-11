@@ -47,7 +47,7 @@ d.attr(rankdir='LR',
        label='MDO Class Hierarchy (color = module, arrows = rdfs:subClassOf)',
        fontsize='16', labelloc='t', fontname='Helvetica-Bold',
        bgcolor='white', nodesep='0.15', ranksep='1.0',
-       dpi='150', size='16,20')
+       dpi='300', size='16,20')
 d.attr('node', shape='box', style='filled,rounded', fontname='Helvetica',
        fontsize='10', margin='0.10,0.05', height='0.25')
 d.attr('edge', arrowhead='empty', color='#666666', penwidth='1.0')

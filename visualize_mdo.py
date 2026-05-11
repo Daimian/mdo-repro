@@ -70,7 +70,8 @@ def add_class_node(dot, c, use_record=False):
 # ============================================================
 d1 = graphviz.Digraph('class_hierarchy', format='png')
 d1.attr(rankdir='BT', label='MDO Class Hierarchy', fontsize='18',
-        labelloc='t', fontname='Helvetica', bgcolor='white', nodesep='0.4', ranksep='0.6')
+        labelloc='t', fontname='Helvetica', bgcolor='white', nodesep='0.4', ranksep='0.6',
+        dpi='300')
 d1.attr('node', shape='box', style='filled,rounded', fontname='Helvetica', fontsize='11')
 d1.attr('edge', arrowhead='empty', color='#555555')
 
@@ -98,7 +99,7 @@ print('1/7 mdo_class_hierarchy.png')
 d2 = graphviz.Digraph('property_map', format='png')
 d2.attr(rankdir='LR', label='MDO Object Properties (Domain -> Range)',
         fontsize='18', labelloc='t', fontname='Helvetica', bgcolor='white',
-        nodesep='0.3', ranksep='1.0')
+        nodesep='0.3', ranksep='1.0', dpi='300')
 d2.attr('node', shape='box', style='filled,rounded', fontname='Helvetica', fontsize='11')
 
 added = set()
@@ -130,7 +131,7 @@ print('2/7 mdo_property_map.png')
 d3 = graphviz.Digraph('ontograf', format='png')
 d3.attr(rankdir='LR', label='MDO Full Ontology Graph', fontsize='20',
         labelloc='t', fontname='Helvetica', bgcolor='white',
-        nodesep='0.4', ranksep='1.2', size='24,16')
+        nodesep='0.4', ranksep='1.2', size='24,16', dpi='300')
 d3.attr('node', shape='record', style='filled', fontname='Helvetica', fontsize='10')
 
 for c in all_classes:
@@ -162,7 +163,7 @@ for mod_name, mod_file in [('core','mdo/mdo-core.owl'),('structure','mdo/mdo-str
 
     dot = graphviz.Digraph(f'module_{mod_name}', format='png')
     dot.attr(rankdir='TB', label=f'MDO Module: {mod_name}', fontsize='16',
-             labelloc='t', fontname='Helvetica', bgcolor='white')
+             labelloc='t', fontname='Helvetica', bgcolor='white', dpi='300')
     dot.attr('node', shape='record', style='filled', fontname='Helvetica', fontsize='10',
              fillcolor=FILL.get(mod_name,'#F2F3F4'),
              color=BORDER.get(mod_name,'#BDC3C7'), penwidth='2')
