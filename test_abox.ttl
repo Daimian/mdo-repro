@@ -1,0 +1,61 @@
+@prefix core: <https://w3id.org/mdo/core/> .
+@prefix structure: <https://w3id.org/mdo/structure/> .
+@prefix calculation: <https://w3id.org/mdo/calculation/> .
+@prefix provenance: <https://w3id.org/mdo/provenance/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/data/> .
+
+# A calculation on Cs2TlInF6 (mimicking real MP entry)
+:calc_001 a core:Calculation ;
+    core:hasInputStructure :struct_in_001 ;
+    core:hasOutputStructure :struct_out_001 ;
+    core:hasOutputCalculatedProperty :prop_bandgap_001 ;
+    calculation:hasComputationalMethod :method_001 ;
+    prov:wasAssociatedWith :sw_vasp ;
+    prov:wasAttributedTo :ref_001 .
+
+:method_001 a calculation:DensityFunctionalTheoryMethod ;
+    calculation:hasXCFunctional :gga_001 ;
+    calculation:hasParameter :param_encut .
+
+:gga_001 a calculation:GeneralizedGradientApproximation .
+
+:param_encut a calculation:ComputationalMethodParameter ;
+    calculation:ParameterName "cutoff_energy" ;
+    calculation:ParameterValue "520" .
+
+:struct_out_001 a core:Structure ;
+    structure:hasComposition :comp_001 ;
+    structure:hasLattice :lat_001 ;
+    structure:hasSpaceGroup :sg_225 ;
+    prov:wasAttributedTo :ref_001 .
+
+:struct_in_001 a core:Structure .
+
+:comp_001 a structure:Composition ;
+    structure:hasDescriptiveFormula "Cs2TlInF6" .
+
+:lat_001 a structure:Lattice ;
+    structure:hasLatticeType "cubic" .
+
+:sg_225 a structure:SpaceGroup ;
+    structure:hasSpaceGroupSymbol "Fm-3m" .
+
+:prop_bandgap_001 a core:CalculatedProperty ;
+    core:PropertyName "band_gap" ;
+    qudt:quantityValue [
+        a qudt:QuantityValue ;
+        qudt:numericalValue "4.0079"^^xsd:double ;
+        qudt:unit <http://qudt.org/vocab/unit/EV>
+    ] .
+
+:sw_vasp a prov:SoftwareAgent ;
+    provenance:SoftwareName "VASP" .
+
+:ref_001 a provenance:ReferenceAgent ;
+    provenance:AuthorName "Persson, Kristin" ;
+    provenance:DatabaseName "Materials Project" ;
+    provenance:DOI "10.17188/1316836" ;
+    provenance:PublicationDateTime "2020-01-15T00:00:00"^^xsd:dateTime .

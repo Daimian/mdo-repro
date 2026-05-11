@@ -1,0 +1,6 @@
+venv/
+mdo/
+__pycache__/
+*.pyc
+.DS_Store
+hs_err_pid*.log

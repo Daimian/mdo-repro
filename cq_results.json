@@ -1,0 +1,137 @@
+{
+  "CQ1": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "propName": "band_gap",
+        "value": "4.0079"
+      }
+    ]
+  },
+  "CQ2": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "input_structure": "http://example.org/data/struct_in_001",
+        "output_structure": "http://example.org/data/struct_out_001"
+      }
+    ]
+  },
+  "CQ3": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "output_structure": "http://example.org/data/struct_out_001",
+        "symbol": "Fm-3m"
+      }
+    ]
+  },
+  "CQ4": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "output_structure": "http://example.org/data/struct_out_001",
+        "type": "cubic"
+      }
+    ]
+  },
+  "CQ5": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "output_structure": "http://example.org/data/struct_out_001",
+        "formula": "Cs2TlInF6"
+      }
+    ]
+  },
+  "CQ6": {
+    "row_count": 1,
+    "data": [
+      {
+        "formula": "Cs2TlInF6",
+        "value": "4.0079"
+      }
+    ]
+  },
+  "CQ7": {
+    "row_count": 1,
+    "data": [
+      {
+        "output_structure": "http://example.org/data/struct_out_001",
+        "value": "4.0079",
+        "type": "cubic"
+      }
+    ]
+  },
+  "CQ8": {
+    "row_count": 1,
+    "data": [
+      {
+        "output_structure": "http://example.org/data/struct_out_001",
+        "value": "4.0079",
+        "type": "cubic"
+      }
+    ]
+  },
+  "CQ9": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "method": "http://example.org/data/method_001"
+      }
+    ]
+  },
+  "CQ10": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "method": "http://example.org/data/method_001",
+        "name": "cutoff_energy",
+        "value": "520"
+      }
+    ]
+  },
+  "CQ11": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "software": "http://example.org/data/sw_vasp"
+      }
+    ]
+  },
+  "CQ12": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "author_name": "Persson, Kristin"
+      }
+    ]
+  },
+  "CQ13": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "software": "http://example.org/data/sw_vasp"
+      }
+    ]
+  },
+  "CQ14": {
+    "row_count": 1,
+    "data": [
+      {
+        "calculation": "http://example.org/data/calc_001",
+        "datetime": "2020-01-15"
+      }
+    ]
+  }
+}
