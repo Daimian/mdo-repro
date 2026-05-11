@@ -129,26 +129,61 @@ print('2/7 mdo_property_map.png')
 # FIGURE 3: Full OntoGraf-style
 # ============================================================
 d3 = graphviz.Digraph('ontograf', format='png')
-d3.attr(rankdir='LR', label='MDO Full Ontology Graph', fontsize='20',
-        labelloc='t', fontname='Helvetica', bgcolor='white',
-        nodesep='0.4', ranksep='1.2', size='24,16', dpi='300')
-d3.attr('node', shape='record', style='filled', fontname='Helvetica', fontsize='10')
+d3.attr(rankdir='TB', label='MDO Full Ontology Graph', fontsize='28',
+        labelloc='t', fontname='Helvetica-Bold', bgcolor='white',
+        nodesep='0.4', ranksep='0.8', dpi='300', pad='0.5',
+        ratio='0.75', size='20,16!')
+d3.attr('node', shape='record', style='filled', fontname='Helvetica', fontsize='14',
+        margin='0.2,0.1')
+d3.attr('edge', penwidth='1.2')
 
+# Group classes by module in clusters for better layout
+module_classes_3 = {}
 for c in all_classes:
-    add_class_node(d3, c, use_record=True)
+    module_classes_3.setdefault(get_module(c), []).append(c)
+
+MODULE_LABELS_3 = {'core': 'mdo-core', 'structure': 'mdo-structure',
+                   'calculation': 'mdo-calculation', 'provenance': 'mdo-provenance',
+                   'prov': 'W3C PROV-O', 'qudt': 'QUDT'}
+
+for mod in ['core', 'structure', 'calculation', 'provenance', 'prov', 'qudt']:
+    classes = module_classes_3.get(mod, [])
+    if not classes:
+        continue
+    with d3.subgraph(name=f'cluster_onto_{mod}') as sg:
+        sg.attr(label=MODULE_LABELS_3.get(mod, mod),
+                style='rounded,filled',
+                color=BORDER.get(mod, '#AAA'),
+                fillcolor=FILL.get(mod, '#F8F8F8') + '30',
+                fontname='Helvetica-Bold', fontsize='16',
+                fontcolor=BORDER.get(mod, '#AAA'))
+        for c in sorted(classes, key=lambda x: short(x)):
+            mod_c = get_module(c)
+            label = short(c)
+            dps = class_dps.get(c, [])
+            if dps:
+                dp_str = '\\l'.join(sorted(dps)) + '\\l'
+                label = f'{{{label}|{dp_str}}}'
+            else:
+                label = f'{{{label}}}'
+            sg.node(nid(c), label=label,
+                    fillcolor=FILL.get(mod_c, '#F2F3F4'),
+                    color=BORDER.get(mod_c, '#AAA'), penwidth='2')
+
 for c in all_classes:
     for p in g.objects(c, RDFS.subClassOf):
         if isinstance(p, rdflib.URIRef) and p in all_classes:
-            d3.edge(nid(c), nid(p), arrowhead='empty', color='#333', penwidth='1.5')
+            d3.edge(nid(c), nid(p), arrowhead='empty', color='#333', penwidth='2.0')
 for prop in obj_props:
     domains = [d for d in g.objects(prop, RDFS.domain) if isinstance(d, rdflib.URIRef)]
     ranges = [r for r in g.objects(prop, RDFS.range) if isinstance(r, rdflib.URIRef)]
     for d in domains:
         for r in ranges:
             mp = get_module(prop)
-            d3.edge(nid(d), nid(r), label=short(prop), fontsize='8',
+            d3.edge(nid(d), nid(r), label=short(prop), fontsize='11',
+                    fontname='Helvetica',
                     color=BORDER.get(mp,'#888'), fontcolor=BORDER.get(mp,'#888'),
-                    style='dashed', arrowhead='vee')
+                    style='dashed', arrowhead='vee', penwidth='1.5')
 
 d3.render('mdo_ontograf', cleanup=True)
 print('3/7 mdo_ontograf.png')
