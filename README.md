@@ -6,7 +6,7 @@ Reproduction of the **Materials Design Ontology** (Li, Armiento, Lambrix, ISWC 2
 
 ```bash
 # 1. Clone this repo
-git clone https://github.com/mian-dai/mdo-repro.git
+git clone https://github.com/Daimian/mdo-repro.git
 cd mdo-repro
 
 # 2. Clone the MDO ontology (required dependency)
@@ -57,3 +57,7 @@ python3 visualize_dataflow.py    # Phase 5: data flow diagram
 - Paper (ISWC 2020): [arXiv:2006.07712](https://arxiv.org/abs/2006.07712)
 - Paper (SWJ 2024): [doi:10.3233/SW-233340](https://doi.org/10.3233/SW-233340)
 - MDO Repository: [github.com/LiUSemWeb/Materials-Design-Ontology](https://github.com/LiUSemWeb/Materials-Design-Ontology)
+
+## License
+
+[CC BY 4.0](LICENSE)
